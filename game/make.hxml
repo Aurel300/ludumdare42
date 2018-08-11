@@ -1,0 +1,6 @@
+-D PLUSTD_TARGET=js.canvas
+-lib plustd
+-cp ../common
+--macro addClassPath('/DevProjects/Libs/plustd/assets/thenet-preloader/lib')
+-main Main
+-js roos.js

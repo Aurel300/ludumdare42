@@ -14,9 +14,9 @@ class Operations {
     return { i: 1, o: 1, f: sw(f) };
   }
   
-  static var ALPHA = "abcdefghijklmnopqrstuvwxyz";
-  static var ALPHA_INC = "bcdefghijklmnopqrstuvwxyzz";
-  static var ALPHA_DEC = "aabcdefghijklmnopqrstuvwxy";
+  static var ALPHA = "abcdefghijklmnopqrstuvwxyz".split("");
+  static var ALPHA_INC = "bcdefghijklmnopqrstuvwxyzz".split("");
+  static var ALPHA_DEC = "aabcdefghijklmnopqrstuvwxy".split("");
   
   public static var INDEX:Map<String, Operation> = [
     "1inc" => swo(w -> ALPHA_INC[ALPHA.indexOf(w.charAt(0))] + w.substr(1)),

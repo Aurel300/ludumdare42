@@ -1,5 +1,7 @@
 package lib;
 
+import lib.Room.ExitPosition;
+
 class Interactive {
   public static var INDEX:Map<String, Interactive> = [
     "ss-sap" => new Interactive([
@@ -13,6 +15,7 @@ class Interactive {
         ,Text('You suggest to the synonym seeker ...')
         ,Take(["sap"])
         ,Text('"Sap! What a sap I have been ... Thank you!"')
+        ,Open(Right)
       ])
     ,"climber" => new Interactive([
          Text('You take in a strange scene: a robot, going up a ladder, but never getting anywhere. The ladder descends just as fast as the robot can ascend. Does it need to exercise to keep fit?')
@@ -107,6 +110,7 @@ enum IaFragment {
   Riddle(words:Array<Word>);
   Branch(branches:Array<IaBranch>);
   SetFlag(flag:String, value:Bool);
+  Open(exit:ExitPosition);
 }
 
 typedef IaBranch = {

@@ -1,12 +1,13 @@
 package lib;
 
+@:forward(length, charAt, substr)
 abstract Word(String) from String {
-  public static var INDEX:Map<String, Word> = for (w in [
+  public static var INDEX:Map<String, Word> = [ for (w in [
        "milk"
       ,"jump", "leap", "spring", "bound", "hop", "pounce"
       ,"walk", "stroll", "march", "run", "roam", "move", "go", "travel", "step"
       ,"climb", "ascend", "scale", "rise"
-    ]) w => new Word(w);
+    ]) w => new Word(w) ];
   
   public function new(w:String) this = w;
   
