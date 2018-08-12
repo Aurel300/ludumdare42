@@ -1,0 +1,33 @@
+### Music list ###
+
+ - [ ] main theme (used by default in other rooms)
+ - [ ] start room - empty (perhaps no music)
+ - [ ] ss1 - SS theme
+ - [ ] hey - friendly guy, slightly awkward (trombone / trumpet out of tune?)
+ - [ ] rev - railway turntable, industrial, desolate
+ - [ ] demote - army march
+ - [ ] c- - pirate on a seashore, emphasis on the sound of the waves - lots of white noise-type drums (hi-hats, cymbals, ...)
+ - [ ] trapdoor
+ - [ ] rapper - hip-hop rhytmic variation of the drums?
+ - [ ] ss2 - SS theme
+ - [ ] bridge - entrance to the royal court, light brass variation
+ - [ ] king - the royal court - heavy brass variation
+ - [ ] 1inc - strange woman / hag
+ - [ ] golf - a golf course
+ - [ ] sushi kitchen
+ - [ ] slick - an oil slick on the floor - theme started with a couple of seconds of glissando (e.g. guitar going up the scale?) then mostly quiet
+ - [ ] fairsight - distant sound of a funfair
+ - [ ] theatre
+ - [ ] queen - another royal court, more delicate maybe
+ - [ ] ss3 - SS theme
+ - [ ] fair - funfair music, circus / carneval / renaissance style
+ - [ ] tree - quiet foresty
+ - [ ] gate - mysterious, dead end
+ - [ ] fallen - beggar asking for money, slums-type atmosphere (heavy bassy sax)
+ - [ ] barentry - bouncer at a bar, remote sound of a night bar
+ - [ ] bar - bar music / dance / electro
+ - [ ] guardians - dramatic tension, little actual melody
+ - [ ] born - melody-box style variation
+ - [ ] fish - sea variation
+ - [ ] climber - robogym, industrial, extremely regular in rhythm (drums composed of hammer striking an anvil?)
+ - [ ] squid - the ultimate goal, pad-heavy enlightment-style
