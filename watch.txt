@@ -1,3 +1,4 @@
 gui:psd/gui.psd:game/png/gui.png
 pal:psd/pal.psd:game/png/pal.png
 rooms:psd/rooms.psd:game/png/rooms.png
+ragdolls:psd/ragdolls.psd:game/png/ragdolls.png

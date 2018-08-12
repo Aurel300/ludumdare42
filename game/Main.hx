@@ -24,6 +24,7 @@ class Main extends Application {
              Embed.getBitmap("pal", "png/pal.png")
             ,Embed.getBitmap("gui", "png/gui.png")
             ,Embed.getBitmap("rooms", "png/rooms.png")
+            ,Embed.getBitmap("ragdolls", "png/ragdolls.png")
             ,new AssetTrigger("pal-parse", ["pal"], (am, _) -> {
                 Pal.init(am.getBitmap);
                 false;

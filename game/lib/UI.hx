@@ -18,11 +18,16 @@ class UI {
   }
   
   public static function init(amB:String->Bitmap):Void {
-    boxBG = amB("gui").fluent >> new Cut(400, 0, 56, 40);
+    var b = amB("gui").fluent;
+    boxBG = b >> new Cut(0, 0, 56, 40);
     
     boxCut = new Box(new Point2DI(41, 29), new Point2DI(46, 34), 1, 1);
-    dialogueBG = box(189, 133);
-    memoryBG = box(215, 149);
+    dialogueBG = box(189, 135);
+    memoryBG = box(215, 151);
+    var memorySlot = b >> new Cut(56, 0, 40, 32);
+    for (y in 0...4) for (x in 0...5) {
+      memoryBG.blitAlpha(memorySlot, 6 + x * 41, 14 + y * 33);
+    }
   }
   
   public function new() {

@@ -34,4 +34,4 @@ Space (the black stuff in the sky) is limited, we need to get more ink to make m
  - Plot
  - Puzzle
  - Polish
-   - Room transitions
+   - [x] Room transitions
