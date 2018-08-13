@@ -1,68 +1,82 @@
 package lib;
 
+import sk.thenet.anim.*;
 import sk.thenet.app.*;
+
+using sk.thenet.FM;
 
 class SGame extends JamState {
   public static var G:SGame;
   
+  public static var musicOn:Bool = true;
+  public static var soundOn:Bool = true;
+  
+  public var roomStates:Map<String, RoomState>;
   public var room:RoomDisplay;
   public var ui:UI;
-  
-  static var walkspeed = 20;
+  public var renderer:RoomRenderer;
+  public var cameraX:Float = 41;
+  public var cameraTX:Float = 41;
+  public var activeRoom:RoomState;
   
   public function new(app) {
     super("game", app);
     G = this;
+    renderer = new RoomRenderer(this);
   }
   
   override public function to():Void {
     Story.initNew();
-    room = Single("start"); // TODO: base on Story state
-    ui = new UI();
+    Sfx.initMusic();
+    roomStates = [ for (k in Room.INDEX.keys()) k => new RoomState(Room.INDEX[k]) ];
+    ui = new UI(this);
     
-    rd = Ragdoll.makeHumanoid(amB("ragdolls"), 0, 0);
-    rda = RagdollAnimation.INDEX["walkR"];
-    rdam = rda.animate([0, 1, 2, 3, 4, 5], [20, 15, 20, 20, 15, 20], rd).makeScaled(.5);
+    room = Single(roomStates["start"]);
+    roomStates["start"].enter(Top);
   }
   
-  var rd:Ragdoll;
-  var rda:RagdollAnimation;
-  var rdam:lib.RagdollAnimation.RdAnimator;
-  var rdX = 0;
+  override public function mouseDown(mx:Int, my:Int):Void {
+    switch (room) {
+      case Transitioning(_, _, _, _): return;
+      case _:
+    }
+    ui.mouseDown(mx, my);
+  }
   
-  var rns = ["start", "1-0", "robogym", "king", "bridge", "start"];
-  var rnum = 0;
-  var dns:Array<lib.Room.ExitPosition> = [Right, Bottom, Left, Top, Bottom];
-  var dnum = 0;
+  override public function mouseUp(mx:Int, my:Int):Void {
+    switch (room) {
+      case Transitioning(_, _, _, _): return;
+      case _:
+    }
+       ui.mouseUp(mx, my)
+    || renderer.mouseClick(mx - cameraX.floor(), my);
+  }
+  
+  override public function keyUp(k):Void {
+    ui.keyUp(k);
+  }
+  
+  override public function text(t:String):Void {
+    ui.text(t);
+  }
   
   override public function tick():Void {
-    // logic
-    room = (switch (room) {
-        case Transitioning(from, dir, to, prog):
-        var nprog = prog + 0.05;
-        nprog >= 2 ? Single(to) : Transitioning(from, dir, to, nprog);
-        case Single(_): rnum %= rns.length - 1; dnum %= dns.length; Transitioning(rns[rnum], dns[dnum++], rns[++rnum], 0);
-        case _: room;
+    Sfx.tick();
+    
+    activeRoom = (switch (room) {
+        case Single(s): s;
+        case _: activeRoom;
       });
+    
+    // logic
     ui.prerender();
+    renderer.tick(app.mouse.x - cameraX.floor(), app.mouse.y);
     
     // render
     ab.fill(Pal.P[36]);
-    RoomRenderer.renderRooms(ab, room);
-    ui.render(ab);
+    renderer.renderRooms(ab, cameraX.floor());
+    ui.render(ab, app.mouse.x, app.mouse.y);
     
-    // ragdoll
-    rd.render(ab, rdX + 30, 120, 0);
-    rdam.tick((frozen) -> {
-        for (part in frozen) if (part.id == "root") {
-          if (part.xOffset >= walkspeed) {
-            part.xOffset -= walkspeed;
-            rdX += walkspeed;
-            rdX %= 200;
-            rd.root.xOffset -= walkspeed;
-            break;
-          }
-        }
-      });
+    cameraX.targetMin(cameraTX, 8, 0.01);
   }
 }

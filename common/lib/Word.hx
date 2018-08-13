@@ -1,7 +1,7 @@
 package lib;
 
 @:forward(length, charAt, substr)
-abstract Word(String) from String {
+abstract Word(String) from String to String {
   public static var INDEX:Map<String, Word> = [ for (w in [
        "milk"
       ,"jump", "leap", "spring", "bound", "hop", "pounce"

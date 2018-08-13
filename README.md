@@ -18,20 +18,4 @@ Space (the black stuff in the sky) is limited, we need to get more ink to make m
 
 ### TODO ###
 
- - Graphics
-   - [.] Floor 1
-   - [ ] Floor 2
-   - [ ] Floor 3
-   - [ ] Floor 4
-   - [ ] Floor 5
-   - [ ] Floor 6
-   - [ ] Floor 7
-   - [ ] NPCs
- - UI
-   - [ ] Memory
-   - [ ] Dialogue
- - Audio
- - Plot
- - Puzzle
- - Polish
-   - [x] Room transitions
+ - [ ] map - room names

@@ -1,4 +1,10 @@
 gui:psd/gui.psd:game/png/gui.png
 pal:psd/pal.psd:game/png/pal.png
-rooms:psd/rooms.psd:game/png/rooms.png
 ragdolls:psd/ragdolls.psd:game/png/ragdolls.png
+floor0:psd/floor0.psd:game/png/floor0.png
+floor1:psd/floor1.psd:game/png/floor1.png
+floor2:psd/floor2.psd:game/png/floor2.png
+floor3:psd/floor3.psd:game/png/floor3.png
+floor4:psd/floor4.psd:game/png/floor4.png
+floor5:psd/floor5.psd:game/png/floor5.png
+floor6:psd/floor6.psd:game/png/floor6.png

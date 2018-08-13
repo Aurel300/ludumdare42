@@ -11,7 +11,5 @@ class Story {
   
   public static function initNew():Void {
     inv = new Inventory();
-    inv.slots[0] = Map({x: 0, y: 0, explored: true});
-    inv.slots[1] = Map({x: 1, y: 0, explored: false});
   }
 }

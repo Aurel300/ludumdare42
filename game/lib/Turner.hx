@@ -8,7 +8,7 @@ import sk.thenet.bmp.manip.*;
 using sk.thenet.FM;
 
 class Turner {
-  public static var FRAMES:Int = 36;
+  public static var FRAMES:Int = 72;
   
   public var source:Bitmap;
   public var data:Vector<Bitmap>;
@@ -21,7 +21,7 @@ class Turner {
   public function getAngle(a:Float):Bitmap {
     while (a < 0) a += 360;
     a %= 360;
-    var frame = (a / (360 / FRAMES) - 0.5).floor() % FRAMES;
+    var frame = (a / (360 / FRAMES)).round() % FRAMES;
     if (data[frame] == null) {
       data[frame] = source.fluent >> new Rotate((a / 180) * Math.PI);
     }
