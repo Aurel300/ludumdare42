@@ -59,7 +59,6 @@ class Main extends Application {
             ,Embed.getSound("theme-deepspace", "wav/theme-deepspace.mp3")
             ,Embed.getSound("theme-main", "wav/theme-main.mp3")
             ,Embed.getSound("theme-noise", "wav/theme-noise.mp3")
-            //,Embed.getBitmap(font.FontSymbol8x13.ASSET_ID, "png/symbol8x13.png")
             ,new AssetTrigger("pal-parse", ["pal"], (am, _) -> {
                 Pal.init(am.getBitmap);
                 false;
@@ -108,9 +107,9 @@ class Main extends Application {
         ,Keyboard
         ,Mouse
       ]);
-    preloader = new TNPreloader(this, "title", true);
-    addState(new STitle(this));
+    preloader = new TNPreloader(this, "title");
     addState(new SGame(this));
+    addState(new STitle(this));
     mainLoop();
   }
 }

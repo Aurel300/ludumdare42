@@ -12,7 +12,7 @@ import lib.Interactive.IaFragment;
 using sk.thenet.FM;
 
 class UI {
-  public static inline var DIALOGUE_HIGHLIGHT = 250;
+  public static inline var DIALOGUE_HIGHLIGHT = 250 + 41;
   
   static var boxBG:Bitmap;
   static var boxCut:Box;
@@ -167,7 +167,7 @@ class UI {
   
   public function renderSlot(s:Slot):Bitmap {
     //if (cacheSlot.exists(s)) return cacheSlot[s];
-    return cacheSlot[s] = (switch (s) {
+    return (switch (s) {
       case Empty: slotBG[1];
       case Word(w):
       var ret = slotBG[1].fluent >> new Copy();
@@ -488,12 +488,14 @@ class UI {
   }
   
   public function text(t:String):Void {
+    if (t.length != 1) return;
     if (interactive != null) {
       switch (interactive.current) {
         case Take(ans):
-        if (Operations.ALPHA.indexOf(t.toLowerCase()) == -1) return;
+        var let = t.toLowerCase();
+        if (Operations.ALPHA.indexOf(let) == -1) return;
         Sfx.play("chat-letter");
-        interactive.input[interactive.cursorPos++] = t;
+        interactive.input[interactive.cursorPos++] = let;
         interactive.cursorPos = interactive.cursorPos.minI(ans[0].length - 1);
         interactive.check();
         updateInteractive();
@@ -561,7 +563,7 @@ class Scroller {
   public var buf:Bitmap;
   public var items:Array<ScrollItem> = [];
   public var scroll:Float = 0;
-  public var scrollH:Int;
+  public var scrollH:Int = 1;
   public var down:Bool = false;
   public var margin:Int;
   public var isMap:Bool;

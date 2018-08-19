@@ -22,15 +22,15 @@ class SGame extends JamState {
   public function new(app) {
     super("game", app);
     G = this;
-    renderer = new RoomRenderer(this);
   }
   
   override public function to():Void {
-    Story.initNew();
+    // Story.initNew();
     Sfx.initMusic();
     roomStates = [ for (k in Room.INDEX.keys()) k => new RoomState(Room.INDEX[k]) ];
     ui = new UI(this);
     
+    renderer = new RoomRenderer(this);
     room = Single(roomStates["start"]);
     roomStates["start"].enter(Top);
   }

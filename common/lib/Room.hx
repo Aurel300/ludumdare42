@@ -65,7 +65,7 @@ class Room {
                   ,Exit(9, 0, 2, 3, Bottom, true)
                   ,Ragdoll("guard", ["idleHumanL", "idleHumanR"], 3, 0, "guard")
                 ]
-                ,l: [Ground(0), Ragdoll("guard"), Ragdoll("player"), Ground(1)]
+                ,l: [Ground(0), Visual("bridge-doors"), Ragdoll("guard"), Ragdoll("player"), Ground(1)]
                 ,i: ["guard"]
                 ,ce: [Left]
                 ,oe: [Bottom]
@@ -75,10 +75,11 @@ class Room {
                  n: "hey"
                 ,o: [
                    EXR
-                  ,Ragdoll("hey", ["idleHumanL", "idleHumanR"], 5, 0, "hey")
+                  ,Ragdoll("hey", ["idleHumanL", "idleHumanL"], 5, 0, "hey")
+                  ,Ragdoll("ill", ["idleHumanR", "idleHumanR"], 7, 0, "ill")
                 ]
-                ,l: [Ground(0), Ragdoll("hey"), Ragdoll("player"), Ground(1)]
-                ,i: ["hey"]
+                ,l: [Ground(0), Ragdoll("hey"), Ragdoll("ill"), Ragdoll("player"), Ground(1)]
+                ,i: ["hey", "ill"]
                 ,oe: [Right]
                 ,d: "Social room"
                 ,m: "theme-main"
@@ -122,7 +123,7 @@ class Room {
                  n: "sensei"
                 ,o: [
                    EXL
-                  ,Exit(7, -4, 2, 3, Top, true)
+                  ,Exit(9, -4, 2, 3, Top, true)
                   ,Ragdoll("ss", ["idleHumanL", "idleHumanR"], 5, 0, "ss2")
                 ]
                 ,l: [Ground(0), Ragdoll("ss"), Ragdoll("player"), Ground(1)]
@@ -259,7 +260,7 @@ class Room {
                  n: "check"
                 ,o: [
                    Exit(4, -4, 2, 3, Top, true)
-                  ,EXL
+                  ,EXR
                   ,Exit(4, 0, 2, 3, Bottom, true)
                   ,Ragdoll("checker", ["idleHumanR", "idleHumanR"], 3, 0, "checker")
                 ]

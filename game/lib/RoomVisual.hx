@@ -55,7 +55,7 @@ class RoomVisual {
         (s, to) -> {
           var ladderY = -s.ragdolls["climber"].root.yOffset.floor();
           for (y in 0...3) {
-            to.blitAlpha(ladder, RoomRenderer.TILE_OX + 9 * RoomRenderer.TILE_W, -32 + y * 72 + ladderY);
+            to.blitAlpha(ladder, RoomRenderer.TILE_OX + 9 * RoomRenderer.TILE_W, -64 + y * 72 + ladderY);
           }
         };
       }
@@ -103,7 +103,14 @@ class RoomVisual {
       ,"bridge-doors" => {
         var bt = new Bitween(45);
         (s, to) -> {
-          if (s.openExits.indexOf(Left) != -1) bt.setTo(true);
+          var done = Story.flags.exists("king-queen") && Story.flags.exists("king-guard");
+          if (done && bt.isOff) {
+            bt.setTo(true);
+            Sfx.play("door-open");
+          }
+          if (bt.isOn) {
+            if (SGame.G.roomStates["bridge"].openExits.indexOf(Left) == -1) SGame.G.roomStates["bridge"].openExits.push(Left);
+          }
           var ph = (Timing.quadInOut.getF(bt.valueF) * 45).round();
           to.blitAlpha(doors[4], 30 - ph, 37);
           bt.tick();

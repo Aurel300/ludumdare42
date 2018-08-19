@@ -31,5 +31,6 @@ class Operations {
         cs.reverse();
         cs.join("");
       })
+    ,"mini" => swo(w -> (w:String).split("mi").join("ni"))
   ];
 }

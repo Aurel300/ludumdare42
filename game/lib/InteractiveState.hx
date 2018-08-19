@@ -22,9 +22,9 @@ class InteractiveState {
     room = r;
     if (i == null) return;
     for (i in interactive.fragments) switch (i) {
-      case Take(_): r.showTake = true; solved[i] = false;
-      case Give(_): r.showGive = true; solved[i] = false;
-      case Operation(op): r.showOperation = true; lastOp[op] = Slot.Empty;
+      case Take(_): solved[i] = false;
+      case Give(_): solved[i] = false;
+      case Operation(op): lastOp[op] = Slot.Empty;
       case _:
     }
   }
@@ -64,14 +64,6 @@ class InteractiveState {
       }
       case _:
     }
-    var showTake = false;
-    var showGive = false;
-    for (i in interactive.fragments) switch (i) {
-      case Take(_): if (!solved[i]) showTake = true;
-      case Give(_): if (!solved[i]) showGive = true;
-      case _:
-    }
-    room.showTake = showTake;
-    room.showGive = showGive;
+    room.recalculate();
   }
 }

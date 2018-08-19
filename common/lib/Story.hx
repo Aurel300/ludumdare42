@@ -7,9 +7,5 @@ class Story {
   
   public static var ops = Operations.INDEX;
   public static var words = Word.INDEX;
-  public static var inv:Inventory;
-  
-  public static function initNew():Void {
-    inv = new Inventory();
-  }
+  public static var inv:Inventory = new Inventory();
 }

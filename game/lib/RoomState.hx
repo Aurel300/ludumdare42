@@ -31,12 +31,27 @@ class RoomState {
     for (i in room.interactives) {
       if (!Interactive.INDEX.exists(i)) trace("! no such interactive", i);
     }
+    recalculate();
     objects.push({
         playerRd = lib.Ragdoll.INDEX['player${(room.x + room.y) % 2}'];
         playerAq = new AnimationQueue(playerRd, ["idleL", "idleR"], 0, 0);
         player = Ragdoll("player", playerRd, playerAq, null);
       });
     openExits = [ for (e in room.exits) if (e.open) e.pos ];
+  }
+  
+  public function recalculate():Void {
+    showTake = false;
+    showGive = false;
+    showOperation = false;
+    for (i in interactive) {
+      for (f in i.interactive.fragments) switch (f) {
+        case Take(_): if (!i.solved[f]) { showTake = true; break; }
+        case Give(_): if (!i.solved[f]) { showGive = true; break; }
+        case Operation(_): showOperation = true;
+        case _:
+      }
+    }
   }
   
   public function enter(from:Direction):Void {
