@@ -13,9 +13,6 @@ Space (the black stuff in the sky) is limited, we need to get more ink to make m
 ### Core mechanics ###
 
  - Metroidvania exploration, basic platformer movement.
+   - (This did not happen in the end, just point 'n click.)
  - Limited memory / inventory. Slots represent the known map, as well as known topics, known abilities.
  - Word puzzles. Characters / places where the player can modify words or demand words to open a gate. (System's Twilight swamps)
-
-### TODO ###
-
- - [ ] map - room names
